@@ -1,0 +1,47 @@
+---
+import '@waline/client/style'
+const { class: className } = Astro.props
+---
+
+<comment-component>
+  <div id='waline' class={`not-prose ${className}`}>
+    Comment seems to stuck. Try to refresh?✨
+  </div>
+</comment-component>
+
+<script>
+  import { init as walineInit } from '@waline/client'
+  const walineConfig = {
+    server: 'https://waline.axi404.top/',
+    emoji: [
+      // 这里可以保留或修改你的表情配置
+      'weibo',
+      'alus',
+      'bilibili',
+      'qq'
+    ],
+    additionalConfigs: {
+      locale: {
+        placeholder: '欢迎留言~(支持Markdown语法)'
+      }
+    }
+  }
+
+  class Comment extends HTMLElement {
+    constructor() {
+      super()
+    }
+
+    connectedCallback() {
+      walineInit({
+        el: '#waline',
+        serverURL: walineConfig.server,
+        reaction: [],
+        dark: 'html[class="dark"]', // 自动检测暗黑模式
+        ...walineConfig.additionalConfigs
+      })
+    }
+  }
+
+  customElements.define('comment-component', Comment)
+</script>
