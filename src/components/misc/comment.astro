@@ -37,7 +37,7 @@ const { class: className } = Astro.props
         el: '#waline',
         serverURL: walineConfig.server,
         reaction: [],
-        dark: 'html[class="dark"]', // 自动检测暗黑模式
+        dark: 'html.dark', // 自动检测暗黑模式
         ...walineConfig.additionalConfigs
       })
     }
