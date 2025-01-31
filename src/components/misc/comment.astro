@@ -48,8 +48,8 @@ const { class: className } = Astro.props
 
 <style>
   :global(.dark) #waline {
-    --waline-bg-color: rgb(24, 30, 36);
-    --waline-bg-color-light: rgb(32, 47, 63);
+    --waline-bg-color: var(--card-bg);
+    --waline-bg-color-light: var(--btn-plain-bg-hover);
   }
 
   :global(.wl-count) {
