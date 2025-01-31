@@ -45,3 +45,9 @@ const { class: className } = Astro.props
 
   customElements.define('comment-component', Comment)
 </script>
+
+<style>
+  :global(.wl-count) {
+    color: var(--waline-dark-grey);
+  }
+</style>
