@@ -47,6 +47,11 @@ const { class: className } = Astro.props
 </script>
 
 <style>
+  :global(.dark) #waline {
+    --waline-bg-color: rgb(24, 30, 36);
+    --waline-bg-color-light: rgb(32, 47, 63);
+  }
+
   :global(.wl-count) {
     color: var(--waline-dark-grey);
   }
