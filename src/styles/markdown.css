@@ -42,7 +42,7 @@
         counter-reset: line;
         span.line {
             &:before {
-                @apply text-white/25 mr-4 w-4 inline-block;
+                @apply text-[var(--line-number-color)] mr-4 w-4 inline-block;
                 content: counter(line);
                 counter-increment: line;
                 direction: rtl;
@@ -58,7 +58,7 @@
         @apply rounded-xl px-5;
 
         code {
-            @apply bg-transparent text-inherit text-sm p-0;
+            @apply bg-transparent text-[var(--codeblock-text)] text-sm p-0;
 
             ::selection {
                 @apply bg-[var(--codeblock-selection)];
