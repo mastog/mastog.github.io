@@ -58,7 +58,7 @@
         @apply rounded-xl px-5;
 
         code {
-            @apply bg-transparent text-[var(--codeblock-text)] text-sm p-0;
+            @apply bg-transparent text-inherit text-sm p-0;
 
             ::selection {
                 @apply bg-[var(--codeblock-selection)];
