@@ -60,4 +60,12 @@ const { class: className } = Astro.props
     padding: 0.35em 0.5em;
     width: calc(100% - 2em);
   }
+
+  :global(.wl-edit) {
+    color: var(--waline-dark-grey);
+  }
+
+  :global(#wl-edit)::placeholder {
+    color: var(--waline-dark-grey);
+  }
 </style>
