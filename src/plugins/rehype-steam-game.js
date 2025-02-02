@@ -14,9 +14,9 @@ export function rehypeSteamGame() {
             const appId = node.properties?.appId;
             if (!appId) continue;
 
-            let gameData;
+            let gameData, reviewData;
             try {
-                const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${appId}`, {
+                const res = await fetch(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=english`, {
                     headers: {
                         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
                         'Accept-Language': 'en-US'
@@ -26,7 +26,17 @@ export function rehypeSteamGame() {
                 if (!json[appId]?.success) throw new Error('Invalid appId');
                 gameData = json[appId].data;
                 
-                replaceNode(node, createGameNode(appId, gameData));
+                const resReview = await fetch(`https://store.steampowered.com/appreviews/${appId}?json=1&l=english`, {
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+                        'Accept-Language': 'en-US'
+                    }
+                });
+                const jsonReview = await resReview.json();
+                if (!jsonReview.success) throw new Error('Invalid appId');
+                reviewData = jsonReview.data;
+
+                replaceNode(node, createGameNode(appId, gameData, reviewData));
             } catch (error) {
                 node.children = [{
                     type: 'text',
@@ -39,34 +49,26 @@ export function rehypeSteamGame() {
     };
 }
 
-function createGameNode(appId, data) {
+function createGameNode(appId, gameData, reviewData) {
     const children = [];
-    if (data.header_image) {
-        children.push({
-            type: 'element',
-            tagName: 'img',
-            properties: { src: data.header_image, alt: data.name, class: 'game-img' },
-            children: []
-        });
-    }
+    const infoChildren = [];
 
-    const steamUrl = `https://store.steampowered.com/app/${appId}/`;
-    children.push({
+    infoChildren.push({
         type: 'element',
-        tagName: 'a',
-        properties: { href: steamUrl, class: 'game-title' },
-        children: [{ type: 'text', value: data.name }]
+        tagName: 'div',
+        properties: { class: 'game-title' },
+        children: [{ type: 'text', value: gameData.name }]
     });
 
-    if (data.price_overview) {
-        children.push({
+    if (gameData.price_overview) {
+        infoChildren.push({
             type: 'element',
             tagName: 'div',
             properties: { class: 'game-price' },
-            children: [{ type: 'text', value: data.price_overview.final_formatted }]
+            children: [{ type: 'text', value: gameData.price_overview.final_formatted }]
         });
     } else {
-        children.push({
+        infoChildren.push({
             type: 'element',
             tagName: 'div',
             properties: { class: 'game-price' },
@@ -74,10 +76,39 @@ function createGameNode(appId, data) {
         });
     }
 
-    return {
+    children.push({
         type: 'element',
         tagName: 'div',
-        properties: { class: 'steam-game' },
+        properties: { class: 'game-info' },
+        children: infoChildren
+    });
+
+    if (gameData.header_image) {
+        children.push({
+            type: 'element',
+            tagName: 'div',
+            properties: { class: 'game-cover' },
+            children: [{
+                type: 'element',
+                tagName: 'img',
+                properties: { 
+                    src: gameData.header_image, 
+                    alt: gameData.name,
+                    loading: 'lazy'
+                },
+                children: []
+            }]
+        });
+    }
+
+    const steamUrl = `https://store.steampowered.com/app/${appId}/`;
+    return {
+        type: 'element',
+        tagName: 'a',
+        properties: {
+            class: 'steam-game',
+            href: steamUrl
+        },
         children
     };
 }
