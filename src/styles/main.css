@@ -156,6 +156,33 @@
     height: var(--collapsedHeight);
 }
 
+.steam-game {
+    border: 1px solid #e5e7eb;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+}
+  
+.game-img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 4px;
+}
+  
+.game-title {
+    font-size: 1.25rem;
+    color: #1e40af;
+    text-decoration: none;
+    display: block;
+    margin: 0.5rem 0;
+}
+  
+.game-price {
+    font-size: 1.25rem;
+    color: #10b981;
+    font-weight: bold;
+}
+
 html.dark .astro-code,
 html.dark .astro-code span {
     color: var(--shiki-dark) !important;
