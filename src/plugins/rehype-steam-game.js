@@ -34,7 +34,7 @@ export function rehypeSteamGame() {
                 });
                 const jsonReview = await resReview.json();
                 if (!jsonReview.success) throw new Error('Invalid appId');
-                reviewData = jsonReview.data;
+                reviewData = jsonReview.query_summary;
 
                 replaceNode(node, createGameNode(appId, gameData, reviewData));
             } catch (error) {
@@ -76,7 +76,7 @@ function createGameNode(appId, gameData, reviewData) {
         });
     }
 
-    let review = `${reviewData.query_summary.total_positive} / ${reviewData.query_summary.total_reviews} ( ${reviewData.query_summary.review_score_desc} )`
+    let review = `${reviewData.total_positive} / ${reviewData.total_reviews} ( ${reviewData.review_score_desc} )`
 
     infoChildren.push({
         type: 'element',
