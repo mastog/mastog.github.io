@@ -23,6 +23,10 @@ export function SteamGameComponent(properties, children) {
     )
 
   const appId = properties.appId
+
+  const detailsUrl = encodeURIComponent(`https://store.steampowered.com/api/appdetails?appids=${appId}&l=english`);
+  const reviewsUrl = encodeURIComponent(`https://store.steampowered.com/appreviews/${appId}?json=1&l=english`);
+
   const cardUuid = `SG${Math.random().toString(36).slice(-6)}`
 
   const nCover = h(`div#${cardUuid}-cover`, { class: 'sg-cover' })
@@ -36,12 +40,8 @@ export function SteamGameComponent(properties, children) {
     { type: 'text/javascript', defer: true },
     `
       Promise.all([
-        fetch('https://thingproxy.freeboard.io/fetch/https://store.steampowered.com/api/appdetails?appids=${appId}&l=english', {
-          headers: { 'User-Agent': 'SteamCardFetcher/1.0' }
-        }),
-        fetch('https://thingproxy.freeboard.io/fetch/https://store.steampowered.com/appreviews/${appId}?json=1&l=english', {
-          headers: { 'User-Agent': 'SteamCardFetcher/1.0' }
-        })
+        fetch('https://steam-game.mastooooooogway.workers.dev/?url=${detailsUrl}'),
+        fetch('https://steam-game.mastooooooogway.workers.dev/?url=${reviewsUrl}')
       ])
       .then(async ([detailsRes, reviewsRes]) => {
         const details = await detailsRes.json();
