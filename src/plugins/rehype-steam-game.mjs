@@ -45,7 +45,7 @@ export function SteamGameComponent(properties, children) {
       ])
       .then(async ([detailsRes, reviewsRes]) => {
         const details = await detailsRes.json();
-        const reviews = await reviewsRes.json()
+        const reviews = await reviewsRes.json();
 
         if (!details[${appId}]?.success) throw new Error('Invalid app ID');
         
