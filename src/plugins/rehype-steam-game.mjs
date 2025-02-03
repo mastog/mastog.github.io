@@ -44,20 +44,20 @@ export function SteamGameComponent(properties, children) {
         })
       ])
       .then(async ([detailsRes, reviewsRes]) => {
-        const details = await detailsRes.json()
+        const details = await detailsRes.json();
         const reviews = await reviewsRes.json()
 
-        if (!details[${appId}]?.success) throw new Error('Invalid app ID')
+        if (!details[${appId}]?.success) throw new Error('Invalid app ID');
         
-        const data = details[${appId}].data
+        const data = details[${appId}].data;
         const reviewSummary = reviews.query_summary;
 
-        const coverEl = document.getElementById('${cardUuid}-cover')
-        coverEl.style.backgroundImage = 'url(' + data.header_image + ')'
+        const coverEl = document.getElementById('${cardUuid}-cover');
+        coverEl.style.backgroundImage = 'url(' + data.header_image + ')';
         
-        document.getElementById('${cardUuid}-title').innerText = data.name
+        document.getElementById('${cardUuid}-title').innerText = data.name;
         document.getElementById('${cardUuid}-price').innerText = 
-          data.price_overview?.final_formatted || 'N/A'
+          data.price_overview?.final_formatted || 'N/A';
 
         const totalPositive = reviewSummary.total_positive;
         const totalReviews = reviewSummary.total_reviews;
@@ -71,13 +71,13 @@ export function SteamGameComponent(properties, children) {
 
         document.getElementById('${cardUuid}-review').innerHTML = reviewHtml;
 
-        document.getElementById('${cardUuid}-card').classList.remove("sg-loading")
+        document.getElementById('${cardUuid}-card').classList.remove("sg-loading");
       })
       .catch(err => {
-        const card = document.getElementById('${cardUuid}-card')
-        card.classList.add("sg-error")
-        card.querySelector('.sg-title').innerText = 'Failed to load game data'
-        console.error('[SteamCard] Error loading ${appId}:', err)
+        const card = document.getElementById('${cardUuid}-card');
+        card.classList.add("sg-error");
+        card.querySelector('.sg-title').innerText = 'Failed to load game data';
+        console.error('[SteamCard] Error loading ${appId}:', err);
       })
     `
   )
