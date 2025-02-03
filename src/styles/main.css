@@ -126,6 +126,34 @@
     .copy-btn.success .success-icon {
         @apply opacity-100
     }
+
+    .game-cover {
+        width: 46%;
+        height: 21.5%;
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .game-cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .game-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .game-price {
+        font-size: 1.5rem;
+        color: #0fa958;
+        font-weight: 600;
+        margin-bottom: 1.25rem;
+    }
 }
 
 .custom-md img, #post-cover img {
@@ -154,88 +182,6 @@
 
 .collapsed {
     height: var(--collapsedHeight);
-}
-
-a.steam-game {
-    display: flex;
-    flex-direction: column;
-    background: var(--license-block-bg);
-    position: relative;
-    margin: 0.5rem 0;
-    padding: 1.1rem 1.5rem 1.1rem 1.5rem;
-    color: var(--tw-prose-body);
-    border-radius: var(--radius-large);
-    text-decoration-thickness: 0px;
-    text-decoration-line: none;
-    transition: background-color 0.2s ease;
-}
-
-a.steam-game:hover {
-    background-color: var(--btn-regular-bg-hover)
-}
-
-a.steam-game:active {
-    scale: .98;
-    background-color: var(--btn-regular-bg-active);
-}
-
-.game-cover {
-    flex: 0 0 240px;
-    height: 240px;
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-}
-
-.game-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.game-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.game-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 0.75rem;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.game-title:hover {
-    color: #0066cc;
-}
-
-.game-price {
-    font-size: 1.5rem;
-    color: #0fa958;
-    font-weight: 600;
-    margin-bottom: 1.25rem;
-}
-
-.game-reviews {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-}
-
-.review-percent {
-    color: #666;
-    font-weight: 500;
-}
-
-.review-stars {
-    color: #ffb400;
-    display: inline-flex;
-    gap: 2px;
 }
 
 html.dark .astro-code,

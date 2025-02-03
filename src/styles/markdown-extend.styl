@@ -84,6 +84,66 @@
     margin-right: auto
     max-width: 100%
 
+a.steam-game
+  display: flex
+  background: var(--license-block-bg)
+  position: relative
+  margin: 0.5rem 0
+  padding: 1.1rem 1.5rem 1.1rem 1.5rem
+  color: var(--tw-prose-body)
+  border-radius: var(--radius-large)
+  text-decoration-thickness: 0px
+  text-decoration-line: none
+
+  &:hover
+    background-color: var(--btn-regular-bg-hover)
+
+    .game-title
+      color: var(--btn-content)
+
+  &:active
+    scale: .98
+    background-color: var(--btn-regular-bg-active)
+
+  .game-inf0
+      flex: 1
+      display: flex
+      flex-direction: column
+      justify-content: center
+
+  .game-title
+    font-size: 1.25rem
+    font-weight: bold
+    color: var(--tw-prose-headings)
+    margin-bottom: 0.25rem
+    text-decoration: none
+    transition: color 0.2s
+
+  .game-price
+    margin-bottom: 0.7rem
+    font-size: 1rem
+    font-weight: 300
+    line-height: 1.5rem
+    color: var(--tw-prose-body)
+  
+  .game-review
+    font-size: 1rem
+    font-weight: 300
+    line-height: 1.5rem
+    color: var(--tw-prose-body)
+  
+  .game-cover
+    width: 46%
+    height: 21.5%
+    border-radius: var(--radius-large)
+    overflow: hidden
+    position: relative
+
+  .game-cover img 
+    width: 100%
+    height: 100%
+    object-fit: cover
+
 a.card-github
   display: block
   background: var(--license-block-bg)
@@ -109,7 +169,7 @@ a.card-github
 
   &:active
     scale: .98
-    background-color: var(--btn-regular-bg-active);
+    background-color: var(--btn-regular-bg-active)
 
   .gc-titlebar
     display: flex

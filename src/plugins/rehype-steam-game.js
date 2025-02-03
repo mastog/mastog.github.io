@@ -76,6 +76,15 @@ function createGameNode(appId, gameData, reviewData) {
         });
     }
 
+    let review = `${reviewData.query_summary.total_positive} / ${reviewData.query_summary.total_reviews} ( ${reviewData.query_summary.review_score_desc} )`
+
+    infoChildren.push({
+        type: 'element',
+        tagName: 'div',
+        properties: { class: 'game-price' },
+        children: [{ type: 'text', value: review }]
+    });
+
     children.push({
         type: 'element',
         tagName: 'div',
@@ -106,7 +115,7 @@ function createGameNode(appId, gameData, reviewData) {
         type: 'element',
         tagName: 'a',
         properties: {
-            class: 'steam-game',
+            class: 'steam-game no-styling',
             href: steamUrl,
             target: '_blank'
         },
