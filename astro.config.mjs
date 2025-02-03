@@ -13,7 +13,7 @@ import remarkDirective from "remark-directive"; /* Handle directives */
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
-import { rehypeSteamGame } from './src/plugins/rehype-steam-game';
+import { SteamGameComponent } from './src/plugins/rehype-steam-game.mjs';
 import { AdmonitionComponent } from "./src/plugins/rehype-component-admonition.mjs";
 import { GithubCardComponent } from "./src/plugins/rehype-component-github-card.mjs";
 import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
@@ -80,13 +80,13 @@ export default defineConfig({
       parseDirectiveNode,
     ],
     rehypePlugins: [
-      rehypeSteamGame,
       rehypeKatex,
       rehypeSlug,
       [
         rehypeComponents,
         {
           components: {
+            steamgame: SteamGameComponent,
             github: GithubCardComponent,
             note: (x, y) => AdmonitionComponent(x, y, "note"),
             tip: (x, y) => AdmonitionComponent(x, y, "tip"),

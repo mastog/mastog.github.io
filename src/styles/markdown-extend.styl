@@ -84,12 +84,12 @@
     margin-right: auto
     max-width: 100%
 
-a.steam-game
+a.card-steam
   display: flex
   background: var(--license-block-bg)
   position: relative
   margin: 0.5rem 0
-  padding: 1.1rem 1.5rem 1.1rem 1.5rem
+  padding: 0 0 0 1.5rem
   color: var(--tw-prose-body)
   border-radius: var(--radius-large)
   text-decoration-thickness: 0px
@@ -98,51 +98,95 @@ a.steam-game
   &:hover
     background-color: var(--btn-regular-bg-hover)
 
-    .game-title
+    .sg-title
       color: var(--btn-content)
-
+  
+    .sg-cover
+      opacity: 75%
+  
   &:active
     scale: .98
     background-color: var(--btn-regular-bg-active)
 
-  .game-info
-      flex: 1
-      display: flex
-      flex-direction: column
-      justify-content: center
+  .sg-info
+    flex: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
 
-  .game-title
+  .sg-title
     font-size: 1.25rem
     font-weight: bold
     color: var(--tw-prose-headings)
-    margin-bottom: 0.25rem
+    margin-bottom: 0.5rem
     text-decoration: none
     transition: color 0.2s
 
-  .game-price
-    margin-bottom: 0.7rem
-    font-size: 1rem
-    font-weight: 300
-    line-height: 1.5rem
+  .sg-flex
+    display: flex
+    gap: 0.5rem
+    margin-bottom: 0.5rem
+
+  .sg-subtitle
+    font-size: 1.1rem
+    font-weight: bold
+    color: var(--tw-prose-body)
+
+  .sg-price
+    font-size: 1.1rem
+    font-weight: bold
     color: var(--tw-prose-body)
   
-  .game-review
-    font-size: 1rem
-    font-weight: 300
-    line-height: 1.5rem
+  .sg-review
+    font-size: 1.1rem
+    font-weight: bold
     color: var(--tw-prose-body)
-  
-  .game-cover
-    width: 50%;
-    aspect-ratio: 46/21.5
+
+  .sg-cover
+    width: 46%;
+    aspect-ratio: 460/215
     display: flex
     justify-content: center
     align-items: center
+    background-size: contain
+    background-position: center
     overflow: hidden
+    border-radius: 0 var(--radius-large) var(--radius-large) 0
 
-  .game-cover img 
-    width: 100%
-    height: 100%
+a.card-steam.sg-loading
+  pointer-events: none
+  opacity: 0.7
+  transition: opacity 0.15s ease-in-out
+
+  .sg-title, .sg-subtitle, .sg-price, .sg-review, .sg-cover
+    background-color: var(--tw-prose-body)
+    color: transparent
+    opacity: 0.5;
+    animation: pulsate 2s infinite linear
+    user-select: none
+
+  .sg-title, .sg-subtitle, .sg-price, .sg-review
+    border-radius: 0.5rem
+
+  .sg-title
+    width: 80%
+  
+  .sg-price
+    width: 40%
+
+  .sg-review
+    width: 80%
+
+  .sg-cover
+    border-radius: 0 var(--radius-large) var(--radius-large) 0
+
+.sg-error
+  background: rgb(153, 0, 0) !important;
+
+.card-steam, .sg-info, .sg-title, .sg-subtitle, .sg-price, .sg-review, .sg-cover
+  transition-property: all
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+  transition-duration: 0.15s
 
 a.card-github
   display: block
