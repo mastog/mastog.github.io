@@ -3,7 +3,7 @@ This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
 
 ::github{repo="saicaca/fuwari"}
 
-::steam-game{appId="1091500"}
+::steam-game{appId="730"}
 
 > ### Sources of images used in this site
 > - [Unsplash](https://unsplash.com/)

@@ -107,7 +107,8 @@ function createGameNode(appId, gameData, reviewData) {
         tagName: 'a',
         properties: {
             class: 'steam-game',
-            href: steamUrl
+            href: steamUrl,
+            target: '_blank'
         },
         children
     };

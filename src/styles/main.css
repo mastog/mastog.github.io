@@ -156,20 +156,32 @@
     height: var(--collapsedHeight);
 }
 
-.steam-game {
+a.steam-game {
     display: flex;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    border: 1px solid #e1e4e8;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    background: white;
-    margin: 1.5rem 0;
+    flex-direction: column;
+    background: var(--license-block-bg);
+    position: relative;
+    margin: 0.5rem 0;
+    padding: 1.1rem 1.5rem 1.1rem 1.5rem;
+    color: var(--tw-prose-body);
+    border-radius: var(--radius-large);
+    text-decoration-thickness: 0px;
+    text-decoration-line: none;
+    transition: background-color 0.2s ease;
+}
+
+a.steam-game:hover {
+    background-color: var(--btn-regular-bg-hover)
+}
+
+a.steam-game:active {
+    scale: .98;
+    background-color: var(--btn-regular-bg-active);
 }
 
 .game-cover {
     flex: 0 0 240px;
-    height: 320px;
+    height: 240px;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
@@ -224,18 +236,6 @@
     color: #ffb400;
     display: inline-flex;
     gap: 2px;
-}
-
-/* 响应式设计 */
-@media (max-width: 640px) {
-    .steam-game {
-        flex-direction: column;
-    }
-    
-    .game-cover {
-        flex: none;
-        height: 200px;
-    }
 }
 
 html.dark .astro-code,
