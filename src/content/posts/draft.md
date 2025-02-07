@@ -1,22 +1,31 @@
 ---
-title: Draft Example
-published: 2022-07-01
-tags: [Markdown, Blogging, Demo]
-category: Examples
+title: 试验性的西幻小说
+published: 2025-02-06
+tags: [随笔, 小说]
+category: 随笔
 draft: true
 ---
 
-# This Article is a Draft
+## 序章：梦与白鸽
 
-This article is currently in a draft state and is not published. Therefore, it will not be visible to the general audience. The content is still a work in progress and may require further editing and review.
+“你记得吗？”
 
-When the article is ready for publication, you can update the "draft" field to "false" in the Frontmatter:
+如是宿醉的头痛戳破洛林漏气的倦意，他挣扎着撑起僵硬的眼睑，隔着其中的小洞，窥见眼前的景象。
 
-```markdown
----
-title: Draft Example
-published: 2024-01-11T04:40:26.381Z
-tags: [Markdown, Blogging, Demo]
-category: Examples
-draft: false
----
+漆黑笼罩过脚下与头顶，模糊掉看不见的边界，一道纯粹的白线划过，象征遥远的天际。
+
+洛林试探地伸出手去，一无所有，疼痛让他迷失了知觉，凭借着本能跌跌撞撞向前走去，撩拨开回荡的余音，朝着来源的方向。
+
+“你在哭吗？”
+
+湿热的感觉打湿了洛林干枯的脸庞，或许是雨水？他自欺欺人地想到，他不感到悲伤，他没有理由如此。
+
+胸腔的空气凝固，噎在他的咽喉，冰冷的嘴唇颤抖着，他想要说些什么，有人在那里等待着他。
+
+“你是——”沙哑，带着血腥的味道弥散，声音好像抽气泵撕扯出的最后一点空气，尖锐地划破玻璃，“——谁？”
+
+没有回答，洛林没由来地感到一阵空虚，这副躯壳的某个部分永远地离开了他，那是一首挽歌，空洞而呢喃的话语还在回响，他想到。
+
+生锈的关节吱呀扭转，拖拽着洛林蹒跚挪动，他突如其来地想要抵触，他并没有那么想见那个人，他们也许没有那么熟悉。
+
+行动的只有稍纵即逝的思绪，不切实际的坚持不过毫秒，便被一阵更加汹涌的沉重压垮，他还是回到了那里。
